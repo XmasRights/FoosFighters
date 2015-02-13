@@ -65,8 +65,6 @@ void pixelsApp::draw()
     rgb.mirror(false, true);
 	}
 
-  ofSetColor(255,255,255);
-
     //draw all cv images
     rgb.draw(0,0);
     hsb.draw(320,0);
@@ -75,19 +73,28 @@ void pixelsApp::draw()
     filtered.draw(320,240);
     contours.draw(0,0);
 
-    ofSetColor(255, 255, 0);
-    ofFill();
-
     //draw red circles for found blobs
+
+    ofSetColor(255, 0 , 0);
     for (int i=0; i<contours.nBlobs; i++) {
         ofCircle(contours.blobs[i].centroid.x, contours.blobs[i].centroid.y, 20);
     }
+
+    //draw gui
+  ofSetHexColor(0x777777);
+  ofDrawBitmapString("Hue: " + ofToString(findHue) + " (a, z)", 10, h+20);
+  ofDrawBitmapString("Sat: " + ofToString(findSat) + " (s, x)", 10, h+40);
+  ofDrawBitmapString("Bri: " + ofToString(findBri) + " (d, c)", 10, h+60);
+  ofDrawBitmapString("Hue Ancho: " + ofToString(anchoHue) + " (f, v)", 10, h+80);
+  ofDrawBitmapString("Sat Ancho: " + ofToString(anchoSat) + " (g, b)", 10, h+100);
+  ofDrawBitmapString("Bri Ancho: " + ofToString(anchoBri) + " (h, n)", 10, h+120);
 }
 
 
 void pixelsApp::mousePressed(int x, int y, int button)
 {
-  if(x<w && y<h){
+  if(x<w && y<h)
+  {
         //get hue value on mouse position
         findHue = hue.getPixels()[y*w+x];
         findSat = sat.getPixels()[y*w+x];
