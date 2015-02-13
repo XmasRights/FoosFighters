@@ -21,4 +21,6 @@ class pixelsApp : public ofBaseApp {
 
 	int w,h;
 	int findHue, findSat, findBri, anchoHue, anchoSat, anchoBri;
+
+	bool verHsb, verSat, verHue, verInput;
 };
