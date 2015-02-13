@@ -12,6 +12,9 @@ void pixelsApp::setup()
   h = 240;
 
   anchoHue = anchoBri = anchoSat = 5;
+  findHue = 35;
+  findSat = 55;
+  findBri = 65;
 
   videoGrabber.setup(w, h);
 
@@ -84,12 +87,13 @@ void pixelsApp::draw()
 
     //draw gui
   ofSetHexColor(0x777777);
-  ofDrawBitmapString("Hue: " + ofToString(findHue) + " (a, z)", 10, h+20);
-  ofDrawBitmapString("Sat: " + ofToString(findSat) + " (s, x)", 10, h+40);
-  ofDrawBitmapString("Bri: " + ofToString(findBri) + " (d, c)", 10, h+60);
-  ofDrawBitmapString("Hue Ancho: " + ofToString(anchoHue) + " (f, v)", 10, h+80);
-  ofDrawBitmapString("Sat Ancho: " + ofToString(anchoSat) + " (g, b)", 10, h+100);
-  ofDrawBitmapString("Bri Ancho: " + ofToString(anchoBri) + " (h, n)", 10, h+120);
+  int textStart = 640;
+  ofDrawBitmapString("Hue: " + ofToString(findHue) + " (a, z)", 10, textStart+20);
+  ofDrawBitmapString("Sat: " + ofToString(findSat) + " (s, x)", 10, textStart+40);
+  ofDrawBitmapString("Bri: " + ofToString(findBri) + " (d, c)", 10, textStart+60);
+  ofDrawBitmapString("Hue Ancho: " + ofToString(anchoHue) + " (f, v)", 10, textStart+80);
+  ofDrawBitmapString("Sat Ancho: " + ofToString(anchoSat) + " (g, b)", 10, textStart+100);
+  ofDrawBitmapString("Bri Ancho: " + ofToString(anchoBri) + " (h, n)", 10, textStart+120);
 }
 
 
