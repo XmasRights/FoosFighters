@@ -65,6 +65,8 @@ void pixelsApp::draw()
     rgb.mirror(false, true);
 	}
 
+  ofSetColor(255,255,255);
+
     //draw all cv images
     rgb.draw(0,0);
     hsb.draw(320,0);
@@ -73,9 +75,9 @@ void pixelsApp::draw()
     filtered.draw(320,240);
     contours.draw(0,0);
 
-    //draw red circles for found blobs
+    ofSetColor(255, 0, 0);
 
-    ofSetColor(255, 0 , 0);
+    //draw red circles for found blobs
     for (int i=0; i<contours.nBlobs; i++) {
         ofCircle(contours.blobs[i].centroid.x, contours.blobs[i].centroid.y, 20);
     }
