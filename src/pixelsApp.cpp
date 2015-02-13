@@ -13,9 +13,6 @@ void pixelsApp::setup()
 
   anchoHue = anchoBri = anchoSat = 5;
 
-  verHsb = verSat = verHue = false;
-  verInput = true;
-
   videoGrabber.setup(w, h);
 
   //reserve memory for cv images
@@ -71,14 +68,14 @@ void pixelsApp::draw()
   ofSetColor(255,255,255);
 
     //draw all cv images
-    if(verInput) rgb.draw(0,0);
-    if(verHsb) hsb.draw(0,0);
-    if(verHue) hue.draw(0,0);
-    if(verSat) sat.draw(0,0);
-    filtered.draw(w,0);
-    contours.draw(w,0);
+    rgb.draw(0,0);
+    hsb.draw(320,0);
+    hue.draw(640,0);
+    sat.draw(0,240);
+    filtered.draw(320,240);
+    contours.draw(0,0);
 
-    ofSetColor(255, 0, 0);
+    ofSetColor(255, 255, 0);
     ofFill();
 
     //draw red circles for found blobs
@@ -101,22 +98,6 @@ void pixelsApp::mousePressed(int x, int y, int button)
 //--------------------------------------------------------------
 void pixelsApp::keyPressed(int key){
   switch(key){
-        case '1':
-            verInput = true;
-            verHsb = verSat = verHue = false;
-            break;
-        case '2':
-            verHsb = true;
-            verInput = verSat = verHue = false;
-            break;
-        case '3':
-            verHue = true;
-            verInput = verSat = verHsb = false;
-            break;
-        case '4':
-            verSat = true;
-            verInput = verHue = verHsb = false;
-            break;
     case 'a':
       findHue = min(findHue + 1, 180);
       break;
