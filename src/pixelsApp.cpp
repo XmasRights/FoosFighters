@@ -32,7 +32,29 @@ void pixelsApp::update()
 {
 	if (videoGrabber.isFrameNew())
 	{
+    //duplicate rgb
+    hsb = rgb;
 
+    //convert to hsb
+    hsb.convertRgbToHsv();
+
+    //store the three channels as grayscale images
+    hsb.convertToGrayscalePlanarImages(hue, sat, bri);
+
+    //filter image based on the hue value were looking for
+    for (int i=0; i<w*h; i++) {
+      if( ofInRange(hue.getPixels()[i],findHue-anchoHue,findHue+anchoHue) &&
+          ofInRange(sat.getPixels()[i],findSat-anchoSat,findSat+anchoSat) &&
+          ofInRange(bri.getPixels()[i],findBri-anchoBri,findBri+anchoBri)){
+            filtered.getPixels()[i] =255;
+        }else{
+            filtered.getPixels()[i] =0;
+        }
+    }
+    filtered.flagImageChanged();
+
+    //run the contour finder on the filtered image to find blobs with a certain hue
+    contours.findContours(filtered, 50, w*h/2, 1, false);
 	}
 }
 
@@ -43,6 +65,7 @@ void pixelsApp::draw()
 	if (videoGrabber.isFrameNew())
 	{
 		rgb.setFromPixels(videoGrabber.getPixels());
+    rgb.mirror(false, true);
 	}
 
   ofSetColor(255,255,255);
