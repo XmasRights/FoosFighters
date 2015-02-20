@@ -85,9 +85,18 @@ void pixelsApp::draw()
         ofCircle(contours.blobs[i].centroid.x, contours.blobs[i].centroid.y, 20);
     }
 
+    // Add labels to the video feed
+    ofSetColour(255, 255, 255);
+    ofDrawBitmapString("RGB", 0, 320);
+    ofDrawBitmapString("HSB", 320, 320);
+    ofDrawBitmapString("HUE", 640, 320);
+    ofDrawBitmapString("SAT", 0, 640);
+    ofDrawBitmapString("Filtered", 320, 640);
+
+
     //draw gui
   ofSetHexColor(0x777777);
-  int textStart = 640;
+  int textStart = 450;
   ofDrawBitmapString("Hue: " + ofToString(findHue) + " (a, z)", 10, textStart+20);
   ofDrawBitmapString("Sat: " + ofToString(findSat) + " (s, x)", 10, textStart+40);
   ofDrawBitmapString("Bri: " + ofToString(findBri) + " (d, c)", 10, textStart+60);
