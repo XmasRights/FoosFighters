@@ -87,16 +87,16 @@ void pixelsApp::draw()
 
     // Add labels to the video feed
     ofSetColor(255, 255, 255);
-    ofDrawBitmapString("RGB", 0, 320);
-    ofDrawBitmapString("HSB", 320, 320);
-    ofDrawBitmapString("HUE", 640, 320);
-    ofDrawBitmapString("SAT", 0, 640);
-    ofDrawBitmapString("Filtered", 320, 640);
+    ofDrawBitmapString("RGB", 0, 0);
+    ofDrawBitmapString("HSB", 320, 0);
+    ofDrawBitmapString("HUE", 640, 0);
+    ofDrawBitmapString("SAT", 0, 240);
+    ofDrawBitmapString("Filtered", 320, 240);
 
 
     //draw gui
   ofSetHexColor(0x777777);
-  int textStart = 450;
+  int textStart = 500;
   ofDrawBitmapString("Hue: " + ofToString(findHue) + " (a, z)", 10, textStart+20);
   ofDrawBitmapString("Sat: " + ofToString(findSat) + " (s, x)", 10, textStart+40);
   ofDrawBitmapString("Bri: " + ofToString(findBri) + " (d, c)", 10, textStart+60);
