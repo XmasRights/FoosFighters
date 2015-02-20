@@ -86,7 +86,7 @@ void pixelsApp::draw()
     }
 
     // Add labels to the video feed
-    ofSetColour(255, 255, 255);
+    ofSetColor(255, 255, 255);
     ofDrawBitmapString("RGB", 0, 320);
     ofDrawBitmapString("HSB", 320, 320);
     ofDrawBitmapString("HUE", 640, 320);
