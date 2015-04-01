@@ -8,8 +8,8 @@
 //--------------------------------------------------------------
 void pixelsApp::setup()
 {
-  w = 320;
-  h = 240;
+  w = 640;
+  h = 480;
 
   anchoHue = anchoBri = anchoSat = 5;
   findHue = 35;
@@ -72,10 +72,10 @@ void pixelsApp::draw()
 
     //draw all cv images
     rgb.draw(0,0);
-    hsb.draw(320,0);
-    hue.draw(640,0);
-    sat.draw(0,240);
-    filtered.draw(320,240);
+    hsb.draw(w,0);
+    hue.draw(w*2,0);
+    sat.draw(0,h);
+    filtered.draw(w,h);
     contours.draw(0,0);
 
     ofSetColor(255, 0, 0);
@@ -88,10 +88,10 @@ void pixelsApp::draw()
     // Add labels to the video feed
     ofSetColor(255, 255, 255);
     ofDrawBitmapString("RGB", 0, 0);
-    ofDrawBitmapString("HSB", 320, 0);
-    ofDrawBitmapString("HUE", 640, 0);
-    ofDrawBitmapString("SAT", 0, 240);
-    ofDrawBitmapString("Filtered", 320, 240);
+    ofDrawBitmapString("HSB", w, 0);
+    ofDrawBitmapString("HUE", w*2, 0);
+    ofDrawBitmapString("SAT", 0, h);
+    ofDrawBitmapString("Filtered", w, h);
 
 
     //draw gui
