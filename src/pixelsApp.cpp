@@ -8,8 +8,8 @@
 //--------------------------------------------------------------
 void pixelsApp::setup()
 {
-  w = 480;
-  h = 360;
+  w = 320;
+  h = 240;
 
   anchoHue = anchoBri = anchoSat = 5;
   findHue = 35;

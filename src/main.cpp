@@ -6,6 +6,6 @@ int main()
 {
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofSetCurrentRenderer(ofGLProgrammableRenderer::TYPE);
-	ofSetupOpenGL(1440, 720, OF_WINDOW);
+	ofSetupOpenGL(960, 480, OF_WINDOW);
 	ofRunApp( new pixelsApp());
 }
